@@ -57,9 +57,15 @@ target_include_directories(${PROJECT_NAME}
 
 if (BUILD_EXAMPLES)
     add_executable(read_write examples/read_write.cpp)
+    add_executable(read examples/read.cpp)
+
     set_target_properties(read_write PROPERTIES DEBUG_POSTFIX _d)
     set_target_properties(read_write PROPERTIES FOLDER examples)
     target_link_libraries(read_write PRIVATE ::${PROJECT_NAME})
+
+    set_target_properties(read PROPERTIES DEBUG_POSTFIX _d)
+    set_target_properties(read PROPERTIES FOLDER examples)
+    target_link_libraries(read PRIVATE ::${PROJECT_NAME})
 endif()
 
 
