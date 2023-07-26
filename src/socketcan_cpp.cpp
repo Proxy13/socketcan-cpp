@@ -60,7 +60,7 @@ namespace scpp
 #ifdef HAVE_SOCKETCAN_HEADERS
 
         /* open socket */
-        if ((m_socket = socket(PF_CAN, SOCK_RAW, CAN_RAW)) < 0) 
+        if ((m_socket = socket(PF_CAN, SOCK_RAW, CAN_RAW)) < 0)
         {
             perror("socket");
             return STATUS_SOCKET_CREATE_ERROR;
@@ -80,7 +80,7 @@ namespace scpp
         addr.can_family = AF_CAN;
         addr.can_ifindex = ifr.ifr_ifindex;
 
-        if (mode == MODE_CANFD_MTU) 
+        if (mode == MODE_CANFD_MTU)
         {
             /* check if the frame fits into the CAN netdevice */
             if (ioctl(m_socket, SIOCGIFMTU, &ifr) < 0) {
@@ -95,9 +95,9 @@ namespace scpp
 
             /* interface is ok - try to switch the socket into CAN FD mode */
             if (setsockopt(m_socket, SOL_CAN_RAW, CAN_RAW_FD_FRAMES,
-                &enable_canfd, sizeof(enable_canfd))) 
+                &enable_canfd, sizeof(enable_canfd)))
             {
-                
+
                 return STATUS_ENABLE_FD_SUPPORT_ERROR;
             }
 
