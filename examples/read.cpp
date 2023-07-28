@@ -6,7 +6,7 @@ int main()
 {
     scpp::SocketCan sockat_can;
     unsigned int pgnId=0;
-    if (sockat_can.open("can0") == scpp::STATUS_OK)
+    if (sockat_can.open("vcan0") == scpp::STATUS_OK)
     {
     for (int j = 0; j < 20000; ++j)
     {
